@@ -125,6 +125,18 @@ body {
   margin: 26px auto 0;
   background: linear-gradient(90deg, transparent, var(--cyan), transparent);
 }
+    .track {
+  position: relative;
+  margin-top: 100px;
+}
+
+.runner {
+  position: absolute;
+  left: 10%;
+  bottom: -3px;
+  width: 90px;
+  height: 90px;
+}
 </style>
 </head>
 <body>
@@ -132,7 +144,21 @@ body {
   <header class="hero">
     <h1 class="logo">ICE CUBE</h1>
     <p class="tagline">Stay Cool</p>
-        <div class="track"></div>
+            <div class="track">
+      <svg class="runner" viewBox="0 0 100 100">
+        <rect x="26" y="68" width="10" height="26" rx="3" fill="#1d3557"/>
+        <rect x="42" y="68" width="10" height="26" rx="3" fill="#1d3557"/>
+        <rect x="22" y="36" width="34" height="36" rx="6" fill="#0b2a4a"/>
+        <rect x="26" y="8" width="26" height="26" rx="6" fill="#f5c9a0"/>
+        <rect x="24" y="4" width="30" height="12" rx="5" fill="#3b2a20"/>
+        <circle cx="34" cy="23" r="2" fill="#0b2a4a"/>
+        <circle cx="46" cy="23" r="2" fill="#0b2a4a"/>
+        <path d="M62 24 H92 L87 62 H67 Z" fill="#ffffff" stroke="#4fc3e8" stroke-width="2"/>
+        <text x="77" y="40" text-anchor="middle" font-size="8" font-weight="700" fill="#0b2a4a">ICE</text>
+        <text x="77" y="52" text-anchor="middle" font-size="7.5" font-weight="700" fill="#0b2a4a">CUBE</text>
+        <rect x="52" y="42" width="16" height="8" rx="4" fill="#f5c9a0"/>
+      </svg>
+    </div>
   </header>
 
   <main class="cubes">
