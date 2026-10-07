@@ -130,13 +130,48 @@ body {
   margin-top: 100px;
 }
 
+.lane {
+  position: relative;
+  width: 80%;
+  max-width: 700px;
+  height: 110px;
+  margin: 26px auto 0;
+  overflow: hidden;
+}
+
+.track {
+  margin-top: 0;
+}
+
 .runner {
   position: absolute;
-  left: -120px;
-  bottom: -3px;
+  left: -100px;
+  bottom: 0;
   width: 80px;
   height: 96px;
-  animation: run 8s linear infinite, bob 0.35s ease-in-out infinite;
+  animation: run 4s linear infinite, bob 0.3s ease-in-out infinite;
+}
+
+.runner.back {
+  animation-name: runBack, bob;
+}
+
+.runner.back svg {
+  transform: scaleX(-1);
+}
+
+@keyframes run {
+  from { left: -100px; }
+  to { left: 100%; }
+}
+
+@keyframes runBack {
+  from { left: 100%; }
+  to { left: -100px; }
+}
+
+html, body {
+  overflow-x: hidden;
 }
 
 .runner svg {
