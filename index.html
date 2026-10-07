@@ -74,6 +74,20 @@ body {
   transform: translateY(-6px) rotate(-1.5deg);
 }
 }
+    .cube.breaking {
+  transform: scale(0.6);
+  opacity: 0;
+  transition: transform 0.25s, opacity 0.25s;
+}
+
+.shard {
+  position: fixed;
+  background: linear-gradient(135deg, #ffffff, #4fc3e8);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  pointer-events: none;
+  z-index: 10;
+  transition: transform 0.8s ease-out, opacity 0.8s;
+}
 </style>
 </head>
 <body>
