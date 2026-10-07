@@ -4,7 +4,67 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ice Cube | Menu</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap');
+
+:root {
+  --ice: #dff3fb;
+  --navy: #0b2a4a;
+  --cyan: #4fc3e8;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--ice);
+  color: var(--navy);
+  font-family: 'Poppins', sans-serif;
+}
+
+.hero {
+  text-align: center;
+  padding: 70px 20px 30px;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  letter-spacing: 0.25em;
+  margin: 0;
+}
+
+.tagline {
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+.cubes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.cube {
+  aspect-ratio: 1;
+  background: var(--white);
+  color: var(--navy);
+  border: 2px solid var(--cyan);
+  border-radius: 16px;
+  font-family: inherit;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+</style>
 </head>
 <body>
 
