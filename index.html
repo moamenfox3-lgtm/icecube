@@ -88,6 +88,25 @@ body {
   z-index: 10;
   transition: transform 0.8s ease-out, opacity 0.8s;
 }
+    .falling-ice {
+  position: fixed;
+  top: -40px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(79, 195, 232, 0.6);
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 0;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to { transform: translateY(110vh) rotate(360deg); }
+}
+
+.hero, .cubes {
+  position: relative;
+  z-index: 1;
+}
 </style>
 </head>
 <body>
@@ -139,9 +158,22 @@ body {
         setTimeout(function () { shard.remove(); }, 900);
       }
 
-      setTimeout(function () { cube.classList.remove('breaking'); }, 1200);
+      setTimeout(function () { window.location.href = cube.dataset.page; }, 900);
     });
   });
+</script>
+  <script>
+  for (let i = 0; i < 25; i++) {
+    const piece = document.createElement('div');
+    const size = 8 + Math.random() * 16;
+    piece.className = 'falling-ice';
+    piece.style.width = size + 'px';
+    piece.style.height = size + 'px';
+    piece.style.left = Math.random() * 95 + 'vw';
+    piece.style.animationDuration = (6 + Math.random() * 8) + 's';
+    piece.style.animationDelay = (-Math.random() * 10) + 's';
+    document.body.appendChild(piece);
+  }
 </script>
 </body>
 </html>
