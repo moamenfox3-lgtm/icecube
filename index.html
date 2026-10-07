@@ -107,6 +107,14 @@ body {
   position: relative;
   z-index: 1;
 }
+    .cube::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%2338a9d1' stroke-opacity='0.75' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M62 0 L55 22 L66 38 L52 55 L58 78 L50 100'/%3E%3Cpath d='M55 22 L30 30 L12 52'/%3E%3Cpath d='M66 38 L88 44 L100 62'/%3E%3Cpath d='M52 55 L34 70 L22 100'/%3E%3Cpath d='M0 20 L18 28 L30 30'/%3E%3C/svg%3E");
+}
 </style>
 </head>
 <body>
