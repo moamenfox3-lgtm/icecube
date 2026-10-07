@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ice Cube | Menu</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--deep:#04121f;--glacier:#0b2a4a;--ice:#8fe3ff;--frost:#eaf8ff}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html,body{overflow-x:hidden}
+body{min-height:100vh;color:var(--frost);font-family:'Poppins',sans-serif;
+  background:radial-gradient(ellipse at 50% -10%,#1d6a95 0,var(--glacier) 42%,var(--deep) 100%) fixed}
+
+#storm{position:fixed;inset:0;width:100%;height:100%;z-index:50;pointer-events:none}
+.frost{position:fixed;inset:0;z-index:4;pointer-events:none;box-shadow:inset 0 0 140px 20px rgba(150,225,255,.22)}
+.aurora{position:fixed;top:0;left:0;right:0;height:60vh;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse at 28% 0,rgba(80,255,216,.2),transparent 60%),
+             radial-gradient(ellipse at 76% 8%,rgba(120,150,255,.2),transparent 55%);
+  animation:drift 14s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translateX(6%) scaleY(1.15);opacity:.7}}
+.cracks{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.cracks path{fill:none;stroke:#bdeeff;stroke-opacity:.2;stroke-width:1.2;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+
+.stal,.crys{position:fixed;left:0;right:0;z-index:3;pointer-events:none}
+.stal{top:0;height:120px;background:linear-gradient(180deg,#0a2745,#3d9bc6 65%,#eaf8ff);
+  clip-path:polygon(0 0,100% 0,100% 18%,96% 60%,92% 22%,87% 100%,82% 28%,76% 75%,70% 20%,64% 92%,58% 26%,51% 70%,45% 18%,38% 100%,32% 30%,26% 78%,20% 22%,13% 96%,8% 30%,3% 64%,0 24%)}
+.crys{bottom:0;height:90px;background:linear-gradient(0deg,#0a2745,#3d9bc6 65%,#eaf8ff);
+  clip-path:polygon(0 100%,100% 100%,100% 70%,95% 30%,90% 68%,84% 0,78% 62%,72% 25%,65% 75%,58% 10%,52% 66%,45% 30%,39% 80%,32% 5%,26% 60%,19% 28%,13% 72%,7% 15%,3% 55%,0 40%)}
+
+main{position:relative;z-index:2;padding:130px 20px 130px;text-align:center}
+.logo{font-family:'Cinzel',serif;font-weight:700;font-size:clamp(2.6rem,10vw,5.4rem);letter-spacing:.16em;padding-left:.16em;
+  background:linear-gradient(180deg,#fff 10%,var(--ice) 90%);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 20px rgba(143,227,255,.55))}
+.tag{font-weight:300;letter-spacing:.45em;padding-left:.45em;text-transform:uppercase;color:#bfeeff;margin-top:6px;font-size:.95rem}
+.line{height:2px;width:min(520px,80%);margin:22px auto 44px;
+  background:linear-gradient(90deg,transparent,var(--ice),transparent);box-shadow:0 0 14px rgba(143,227,255,.7)}
+.hint{font-weight:300;font-size:.9rem;color:#a9dcef;margin:-18px 0 34px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:22px;max-width:780px;margin:0 auto}
+.cube{position:relative;overflow:hidden;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  color:var(--frost);font-family:inherit;cursor:pointer;border-radius:10px;
+  background:linear-gradient(145deg,rgba(255,255,255,.34),rgba(143,227,255,.1) 48%,rgba(255,255,255,.2));
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.45);
+  box-shadow:inset 0 0 26px rgba(255,255,255,.22),0 10px 28px rgba(0,0,0,.35);transition:transform .3s,box-shadow .3s}
+.cube:hover,.cube:focus-visible{transform:translateY(-8px) rotate(-1.2deg);outline:none;
+  box-shadow:inset 0 0 30px rgba(255,255,255,.35),0 0 34px rgba(143,227,255,.55)}
+.cube::after{content:"";position:absolute;inset:0;pointer-events:none;background-size:100% 100%;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%23eaf8ff' stroke-opacity='0.6' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M62 0 L55 22 L66 38 L52 55 L58 78 L50 100'/%3E%3Cpath d='M55 22 L30 30 L12 52'/%3E%3Cpath d='M66 38 L88 44 L100 62'/%3E%3Cpath d='M52 55 L34 70 L22 100'/%3E%3Cpath d='M0 20 L18 28 L30 30'/%3E%3C/svg%3E")}
+.cube::before{content:"";position:absolute;inset:0;pointer-events:none;transform:translateX(-130%);
+  background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.45) 50%,transparent 60%);transition:transform .9s}
+.cube:hover::before{transform:translateX(130%)}
+.cube .t{position:relative;z-index:1;font-family:'Cinzel',serif;font-weight:700;font-size:1.1rem;letter-spacing:.06em;padding:0 8px;text-shadow:0 0 12px rgba(4,18,31,.7)}
+.cube .c{position:relative;z-index:1;font-size:.78rem;font-weight:300;color:#cdefff}
+
+.back{font-family:inherit;font-size:.9rem;color:var(--frost);cursor:pointer;margin-bottom:26px;padding:9px 22px;border-radius:30px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.35);transition:background .3s,box-shadow .3s}
+.back:hover,.back:focus-visible{background:rgba(255,255,255,.2);box-shadow:0 0 20px rgba(143,227,255,.5);outline:none}
+.list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;max-width:780px;margin:0 auto}
+.drink{position:relative;text-align:left;padding:17px 20px 17px 44px;border-radius:12px;font-size:1.02rem;
+  background:linear-gradient(145deg,rgba(255,255,255,.14),rgba(143,227,255,.06));border:1px solid rgba(255,255,255,.22);
+  -webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);transition:transform .25s,box-shadow .25s,border-color .25s;
+  animation:emerge .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*70ms + 200ms)}
+.drink::before{content:"";position:absolute;left:18px;top:50%;width:11px;height:11px;margin-top:-6px;transform:rotate(45deg);
+  background:linear-gradient(135deg,#fff,var(--ice));box-shadow:0 0 10px var(--ice)}
+.drink:hover{transform:translateY(-4px);border-color:var(--ice);box-shadow:0 0 22px rgba(143,227,255,.4)}
+@keyframes emerge{from{opacity:0;filter:blur(8px);transform:scale(.94)}}
+.cube{animation:emerge .8s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*90ms + 500ms)}
+
+@media(prefers-reduced-motion:reduce){.aurora,.cube,.drink{animation:none}}
+</style>
+</head>
+<body>
+<canvas id="storm"></canvas>
+<div class="aurora"></div>
+<svg class="cracks" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 30 L18 38 L30 33 L44 50 L40 70 L55 100"/>
+  <path d="M100 20 L82 30 L70 28 L60 45 L66 62 L52 78 L58 100"/>
+  <path d="M30 33 L36 14 L48 0"/>
+  <path d="M20 100 L28 82 L24 66 L34 54"/>
+  <path d="M82 30 L90 52 L100 60"/>
+</svg>
+<div class="stal"></div>
+<div class="crys"></div>
+<div class="frost"></div>
+
+<main>
+  <section id="home">
+    <h1 class="logo">ICE CUBE</h1>
+    <p class="tag">Stay Cool</p>
+    <div class="line"></div>
+    <p class="hint">Pick a block of ice to open the menu</p>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="menu" hidden>
+    <button class="back" id="back">&larr; Back to the cave</button>
+    <h2 class="logo" id="mt" style="font-size:clamp(2rem,8vw,3.6rem)"></h2>
+    <div class="line"></div>
+    <ul class="list" id="list"></ul>
+  </section>
+</main>
+
+<script>
+const MENU = {
+  'Classics': ['Espresso','Americano','Macchiato','Cortado','Flat White','Cappuccino','Latte','Mocha'],
+  'Signature Drinks': ['Glacier Latte','Salted Caramel Latte','Spanish Latte','Caramel Macchiato','Pistachio Latte','White Mocha','Arctic Cold Brew','Snowcap Mocha'],
+  'Iced & Frappe': ['Iced Latte','Iced Americano','Iced Spanish Latte','Iced Mocha','Iced White Mocha','Mocha Frappe','Caramel Frappe','Cookies & Cream Frappe','Vanilla Shaken'],
+  'Matcha': ['Matcha Latte','Iced Matcha Latte','Strawberry Matcha','Mango Matcha','Matcha Frappe','Blueberry Matcha Cloud'],
+  'Mojito': ['Passion Fruit Mojito','Blue Ocean Mojito','Strawberry Mojito','Blueberry Mojito','Peach Mojito','Red Bull Mojito'],
+  'Desserts': ['Tiramisu','Blueberry Cheesecake','San Sebastian','Honey Cake','Red Velvet Cake','Chocolate Cookie','Walnut Brownie','Pistachio Croissant']
+};
+
+const home = document.getElementById('home');
+const menu = document.getElementById('menu');
+const grid = document.getElementById('grid');
+const list = document.getElementById('list');
+const title = document.getElementById('mt');
+
+Object.keys(MENU).forEach(function (name, i) {
+  const b = document.createElement('button');
+  b.className = 'cube';
+  b.style.setProperty('--i', i);
+  const n = MENU[name].length;
+  b.innerHTML = '<span class="t">' + name + '</span><span class="c">' + n + (name === 'Desserts' ? ' sweets' : ' drinks') + '</span>';
+  b.addEventListener('click', function () { storm(function () { showMenu(name); }); });
+  grid.appendChild(b);
+});
+
+function showMenu(name) {
+  title.textContent = name;
+  list.innerHTML = MENU[name].map(function (d, i) {
+    return '<li class="drink" style="--i:' + i + '">' + d + '</li>';
+  }).join('');
+  home.hidden = true;
+  menu.hidden = false;
+}
+
+document.getElementById('back').addEventListener('click', function () {
+  storm(function () { menu.hidden = true; home.hidden = false; });
+});
+
+const cv = document.getElementById('storm');
+const g = cv.getContext('2d');
+let W, H, power = 1, target = 1, busy = false;
+const flakes = [];
+
+function resize() { W = cv.width = innerWidth; H = cv.height = innerHeight; }
+resize();
+addEventListener('resize', resize);
+
+for (let i = 0; i < 340; i++) {
+  flakes.push({ x: Math.random() * 2400, y: Math.random() * 1400, l: 8 + Math.random() * 28, s: 0.6 + Math.random() * 1.4, z: Math.random() });
+}
+
+function frame() {
+  power += (target - power) * 0.06;
+  g.clearRect(0, 0, W, H);
+  if (power > 0.2) {
+    g.fillStyle = 'rgba(222,244,255,' + Math.min(0.93, (power - 0.2) * 1.2) + ')';
+    g.fillRect(0, 0, W, H);
+  }
+  g.strokeStyle = power > 0.5 ? '#8fd3f5' : '#eaf8ff';
+  g.lineCap = 'round';
+  for (let i = 0; i < flakes.length; i++) {
+    const f = flakes[i];
+    const v = f.s * (2 + power * 55);
+    f.x -= v * 1.2;
+    f.y += v * 0.45 + f.s * 0.6;
+    if (f.x < -80 || f.y > H + 60) { f.x = W + Math.random() * 260; f.y = Math.random() * H - 60; }
+    g.lineWidth = 0.7 + f.z * 2.4;
+    g.globalAlpha = 0.25 + f.z * 0.7;
+    g.beginPath();
+    g.moveTo(f.x, f.y);
+    g.lineTo(f.x + f.l * (0.4 + power * 3), f.y - f.l * (0.1 + power * 0.8));
+    g.stroke();
+  }
+  g.globalAlpha = 1;
+  requestAnimationFrame(frame);
+}
+frame();
+
+setTimeout(function () { target = 0.12; }, 600);
+
+function storm(change) {
+  if (busy) return;
+  busy = true;
+  target = 1;
+  setTimeout(function () { change(); scrollTo(0, 0); }, 1000);
+  setTimeout(function () { target = 0.12; }, 1350);
+  setTimeout(function () { busy = false; }, 2300);
+}
+</script>
+</body>
+</html>
