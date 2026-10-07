@@ -197,63 +197,7 @@ body {
   }
 </script>
   <script>
-  function makeRunner(c) {
-    const head = c.cap
-      ? `<rect x="16" y="6" width="68" height="24" rx="14" fill="${c.cap}"/>
-         <rect x="6" y="22" width="36" height="8" rx="4" fill="${c.cap}"/>`
-      : `<path d="M14 36 Q14 2 50 2 Q86 2 86 36 Q70 20 50 20 Q30 20 14 36 Z" fill="${c.hair}"/>`;
-    const glasses = c.glasses
-      ? `<rect x="24" y="36" width="22" height="18" rx="6" fill="none" stroke="#111" stroke-width="2.5"/>
-         <rect x="54" y="36" width="22" height="18" rx="6" fill="none" stroke="#111" stroke-width="2.5"/>
-         <line x1="46" y1="44" x2="54" y2="44" stroke="#111" stroke-width="2.5"/>`
-      : '';
-    return `<svg viewBox="0 0 100 120">
-      <ellipse cx="50" cy="117" rx="24" ry="3" fill="#0b2a4a" opacity="0.15"/>
-      <rect x="35" y="92" width="12" height="20" rx="4" fill="${c.pants}"/>
-      <rect x="53" y="92" width="12" height="20" rx="4" fill="${c.pants}"/>
-      <rect x="32" y="108" width="17" height="8" rx="4" fill="#222"/>
-      <rect x="51" y="108" width="17" height="8" rx="4" fill="#222"/>
-      <rect x="20" y="66" width="12" height="24" rx="6" fill="${c.shirt}"/>
-      <rect x="30" y="62" width="40" height="36" rx="10" fill="${c.shirt}"/>
-      <rect x="68" y="62" width="12" height="20" rx="6" fill="${c.shirt}"/>
-      <rect x="14" y="4" width="72" height="62" rx="26" fill="${c.skin}"/>
-      ${head}
-      <ellipse cx="36" cy="46" rx="4.5" ry="6" fill="#111"/>
-      <ellipse cx="64" cy="46" rx="4.5" ry="6" fill="#111"/>
-      <circle cx="34.5" cy="43.5" r="1.4" fill="#fff"/>
-      <circle cx="62.5" cy="43.5" r="1.4" fill="#fff"/>
-      ${glasses}
-      <line x1="88" y1="50" x2="91" y2="38" stroke="#4fc3e8" stroke-width="2.5" stroke-linecap="round"/>
-      <path d="M77 59 H97 L94 88 H80 Z" fill="#fff" stroke="#4fc3e8" stroke-width="2"/>
-      <rect x="75" y="54" width="24" height="5" rx="2.5" fill="#4fc3e8"/>
-      <text x="87" y="72" text-anchor="middle" font-size="9" font-weight="700" fill="#0b2a4a">ICE</text>
-      <text x="87" y="83" text-anchor="middle" font-size="7.5" font-weight="700" fill="#0b2a4a">CUBE</text>
-      <rect x="72" y="68" width="9" height="9" rx="4" fill="${c.skin}"/>
-    </svg>`;
-  }
-
-  const people = [
-    { skin: '#e3b48c', cap: '#ffffff', glasses: true, shirt: '#ffffff', pants: '#1a1a1a' },
-    { skin: '#f2c9a0', hair: '#3b2a20', shirt: '#4fc3e8', pants: '#0b2a4a' },
-    { skin: '#8d5a3c', hair: '#111111', shirt: '#ff6b6b', pants: '#333333' },
-    { skin: '#e3b48c', hair: '#d9a441', shirt: '#7bd389', pants: '#1d3557' },
-    { skin: '#f2c9a0', cap: '#0b2a4a', shirt: '#f5f5f5', pants: '#6b7a8f' }
-  ];
-        { skin: '#f2c9a0', hair: '#c0392b', shirt: '#fff3b0', pants: '#1d3557' },
-    { skin: '#8d5a3c', cap: '#ff6b6b', glasses: true, shirt: '#0b2a4a', pants: '#f5f5f5' },
-    { skin: '#e3b48c', hair: '#111111', glasses: true, shirt: '#9b7fe0', pants: '#333333' },
-    { skin: '#c68642', hair: '#3b2a20', shirt: '#ffffff', pants: '#4fc3e8' },
-    { skin: '#f2c9a0', cap: '#7bd389', shirt: '#ff9f43', pants: '#1a1a1a' }
-
-  const track = document.querySelector('.track');
-  people.forEach(function (p, i) {
-    const el = document.createElement('div');
-    el.className = 'runner';
-    el.innerHTML = makeRunner(p);
-    el.style.animationDuration = (6 + i * 1.5) + 's, ' + (0.32 + i * 0.02) + 's';
-    el.style.animationDelay = (-i * 2.4) + 's, 0s';
-    track.appendChild(el);
-  });
+  
 </script>
 </body>
 </html>
