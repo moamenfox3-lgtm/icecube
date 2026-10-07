@@ -56,6 +56,8 @@ body {
 
 .cube {
   aspect-ratio: 1;
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(79,195,232,0.25));
   color: var(--navy);
   border: 1.5px solid rgba(255,255,255,0.9);
@@ -69,6 +71,7 @@ body {
     0 8px 20px rgba(79,195,232,0.35);
   transition: transform 0.25s;
 }
+
 
 .cube:hover {
   transform: translateY(-6px) rotate(-1.5deg);
