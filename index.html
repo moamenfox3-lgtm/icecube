@@ -5,199 +5,193 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ice Cube | Menu</title>
   <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap');
 
-:root {
-  --ice: #dff3fb;
-  --navy: #0b2a4a;
-  --cyan: #4fc3e8;
-  --white: #ffffff;
-}
+    :root {
+      --ice: #dff3fb;
+      --navy: #0b2a4a;
+      --cyan: #4fc3e8;
+      --white: #ffffff;
+    }
 
-* {
-  box-sizing: border-box;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  background: var(--ice);
-  color: var(--navy);
-  font-family: 'Poppins', sans-serif;
-}
+    html, body {
+      overflow-x: hidden;
+    }
 
-.hero {
-  text-align: center;
-  padding: 70px 20px 30px;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--ice);
+      color: var(--navy);
+      font-family: 'Poppins', sans-serif;
+    }
 
-.logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-  letter-spacing: 0.25em;
-  margin: 0;
-}
+    .hero {
+      text-align: center;
+      padding: 70px 20px 30px;
+    }
 
-.tagline {
-  font-weight: 300;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  margin-top: 8px;
-}
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      letter-spacing: 0.25em;
+      margin: 0;
+    }
 
-.cubes {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 20px;
-}
+    .tagline {
+      font-weight: 300;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
 
-.cube {
-  aspect-ratio: 1;
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(79,195,232,0.25));
-  color: var(--navy);
-  border: 1.5px solid rgba(255,255,255,0.9);
-  border-radius: 14px;
-  font-family: inherit;
-  font-size: 1.1rem;
-  font-weight: 500;
-  cursor: pointer;
-  box-shadow:
-    inset 0 0 22px rgba(255,255,255,0.7),
-    0 8px 20px rgba(79,195,232,0.35);
-  transition: transform 0.25s;
-}
+    .hero, .cubes {
+      position: relative;
+      z-index: 1;
+    }
 
+    .cubes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-.cube:hover {
-  transform: translateY(-6px) rotate(-1.5deg);
-}
-}
-    .cube.breaking {
-  transform: scale(0.6);
-  opacity: 0;
-  transition: transform 0.25s, opacity 0.25s;
-}
+    .cube {
+      aspect-ratio: 1;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(79,195,232,0.25));
+      color: var(--navy);
+      border: 1.5px solid rgba(255,255,255,0.9);
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow:
+        inset 0 0 22px rgba(255,255,255,0.7),
+        0 8px 20px rgba(79,195,232,0.35);
+      transition: transform 0.25s;
+    }
 
-.shard {
-  position: fixed;
-  background: linear-gradient(135deg, #ffffff, #4fc3e8);
-  clip-path: polygon(50% 0, 100% 100%, 0 100%);
-  pointer-events: none;
-  z-index: 10;
-  transition: transform 0.8s ease-out, opacity 0.8s;
-}
-    .falling-ice {
-  position: fixed;
-  top: -40px;
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(79, 195, 232, 0.6);
-  border-radius: 4px;
-  pointer-events: none;
-  z-index: 0;
-  animation: fall linear infinite;
-}
+    .cube:hover {
+      transform: translateY(-6px) rotate(-1.5deg);
+    }
 
-@keyframes fall {
-  to { transform: translateY(110vh) rotate(360deg); }
-}
-
-.hero, .cubes {
-  position: relative;
-  z-index: 1;
-}
     .cube::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-size: 100% 100%;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%2338a9d1' stroke-opacity='0.75' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M62 0 L55 22 L66 38 L52 55 L58 78 L50 100'/%3E%3Cpath d='M55 22 L30 30 L12 52'/%3E%3Cpath d='M66 38 L88 44 L100 62'/%3E%3Cpath d='M52 55 L34 70 L22 100'/%3E%3Cpath d='M0 20 L18 28 L30 30'/%3E%3C/svg%3E");
-}
-  
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-size: 100% 100%;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%2338a9d1' stroke-opacity='0.75' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M62 0 L55 22 L66 38 L52 55 L58 78 L50 100'/%3E%3Cpath d='M55 22 L30 30 L12 52'/%3E%3Cpath d='M66 38 L88 44 L100 62'/%3E%3Cpath d='M52 55 L34 70 L22 100'/%3E%3Cpath d='M0 20 L18 28 L30 30'/%3E%3C/svg%3E");
+    }
 
-body {
-  overflow-x: hidden;
-}
-</style>
+    .cube.breaking {
+      transform: scale(0.6);
+      opacity: 0;
+      transition: transform 0.25s, opacity 0.25s;
+    }
+
+    .shard {
+      position: fixed;
+      background: linear-gradient(135deg, #ffffff, #4fc3e8);
+      clip-path: polygon(50% 0, 100% 100%, 0 100%);
+      pointer-events: none;
+      z-index: 10;
+      transition: transform 0.8s ease-out, opacity 0.8s;
+    }
+
+    .falling-ice {
+      position: fixed;
+      top: -40px;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(79, 195, 232, 0.6);
+      border-radius: 4px;
+      pointer-events: none;
+      z-index: 0;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to { transform: translateY(110vh) rotate(360deg); }
+    }
+  </style>
 </head>
 <body>
 
   <header class="hero">
     <h1 class="logo">ICE CUBE</h1>
     <p class="tagline">Stay Cool</p>
-                <div class="lane"></div>
-    <div class="track"></div>
-                  <svg class="runner" viewBox="0 0 100 100">
-        
-    </div>
   </header>
 
   <main class="cubes">
     <button class="cube" data-page="classics.html">Classics</button>
     <button class="cube" data-page="signature.html">Signature Drinks</button>
-    <button class="cube" data-page="iced.html">Iced & Frappe</button>
+    <button class="cube" data-page="iced.html">Iced &amp; Frappe</button>
     <button class="cube" data-page="matcha.html">Matcha</button>
     <button class="cube" data-page="mojito.html">Mojito</button>
     <button class="cube" data-page="desserts.html">Desserts</button>
   </main>
 
   <script>
-  document.querySelectorAll('.cube').forEach(function (cube) {
-    cube.addEventListener('click', function () {
-      const box = cube.getBoundingClientRect();
-      const cx = box.left + box.width / 2;
-      const cy = box.top + box.height / 2;
+    document.querySelectorAll('.cube').forEach(function (cube) {
+      cube.addEventListener('click', function () {
+        const box = cube.getBoundingClientRect();
+        const cx = box.left + box.width / 2;
+        const cy = box.top + box.height / 2;
 
-      cube.classList.add('breaking');
+        cube.classList.add('breaking');
 
-      for (let i = 0; i < 14; i++) {
-        const shard = document.createElement('div');
-        const size = 10 + Math.random() * 14;
-        shard.className = 'shard';
-        shard.style.width = size + 'px';
-        shard.style.height = size + 'px';
-        shard.style.left = cx + 'px';
-        shard.style.top = cy + 'px';
-        document.body.appendChild(shard);
+        for (let i = 0; i < 14; i++) {
+          const shard = document.createElement('div');
+          const size = 10 + Math.random() * 14;
+          shard.className = 'shard';
+          shard.style.width = size + 'px';
+          shard.style.height = size + 'px';
+          shard.style.left = cx + 'px';
+          shard.style.top = cy + 'px';
+          document.body.appendChild(shard);
 
-        const angle = Math.random() * Math.PI * 2;
-        const dist = 60 + Math.random() * 90;
-        const x = Math.cos(angle) * dist;
-        const y = Math.sin(angle) * dist;
-        const rot = Math.random() * 360;
+          const angle = Math.random() * Math.PI * 2;
+          const dist = 60 + Math.random() * 90;
+          const x = Math.cos(angle) * dist;
+          const y = Math.sin(angle) * dist;
+          const rot = Math.random() * 360;
 
-        setTimeout(function () {
-          shard.style.transform = 'translate(' + x + 'px,' + y + 'px) rotate(' + rot + 'deg)';
-          shard.style.opacity = 0;
-        }, 20);
+          setTimeout(function () {
+            shard.style.transform = 'translate(' + x + 'px,' + y + 'px) rotate(' + rot + 'deg)';
+            shard.style.opacity = 0;
+          }, 20);
 
-        setTimeout(function () { shard.remove(); }, 900);
-      }
+          setTimeout(function () { shard.remove(); }, 900);
+        }
 
-      setTimeout(function () { window.location.href = cube.dataset.page; }, 900);
+        setTimeout(function () { window.location.href = cube.dataset.page; }, 900);
+      });
     });
-  });
-</script>
+  </script>
+
   <script>
-  for (let i = 0; i < 25; i++) {
-    const piece = document.createElement('div');
-    const size = 8 + Math.random() * 16;
-    piece.className = 'falling-ice';
-    piece.style.width = size + 'px';
-    piece.style.height = size + 'px';
-    piece.style.left = Math.random() * 95 + 'vw';
-    piece.style.animationDuration = (6 + Math.random() * 8) + 's';
-    piece.style.animationDelay = (-Math.random() * 10) + 's';
-    document.body.appendChild(piece);
-  }
-</script>
-  <script>
-  
-</script>
+    for (let i = 0; i < 25; i++) {
+      const piece = document.createElement('div');
+      const size = 8 + Math.random() * 16;
+      piece.className = 'falling-ice';
+      piece.style.width = size + 'px';
+      piece.style.height = size + 'px';
+      piece.style.left = Math.random() * 95 + 'vw';
+      piece.style.animationDuration = (6 + Math.random() * 8) + 's';
+      piece.style.animationDelay = (-Math.random() * 10) + 's';
+      document.body.appendChild(piece);
+    }
+  </script>
+
 </body>
 </html>
